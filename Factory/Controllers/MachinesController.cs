@@ -68,6 +68,7 @@ namespace Factory.Controllers
     {
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      ViewBag.EngineerCount = _db.Engineers.Count();
       return View(thisMachine);
     }
     [HttpPost]
