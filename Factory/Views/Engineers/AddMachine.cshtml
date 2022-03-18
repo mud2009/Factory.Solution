@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Add a machine for @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@ViewBag.MachineCount == 0)
+{
+  <h5>No machines to add for this engineer</h5>
+}
+else
+{
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.EngineerId)
+
+    @Html.Label("Select category")
+    @Html.DropDownList("MachineId")
+
+    <input type="submit" value="Save" />
+  }
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
