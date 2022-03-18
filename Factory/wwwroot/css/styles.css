@@ -21,6 +21,5 @@ body{
 .form-control{
   display: block;
   margin : 0 auto;
-  text-transform: capitalize;
   width:25% !important;
 }
