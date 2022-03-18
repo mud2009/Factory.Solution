@@ -4,13 +4,13 @@
 
 @model Factory.Models.Machine
 
-<h3>@Html.DisplayNameFor(model => model.Name)'s Details</h3>
+<h3>@Html.DisplayFor(model => model.Name)'s Details</h3>
 
-<h4>Machine's Engineers</h4>
+<h4>Engineers for @Html.DisplayFor(model => model.Name)</h4>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This Machines does not have any licensed Engineers</p>
+  <p>This machine does not have any licensed engineers</p>
 }
 else
 {
@@ -18,6 +18,11 @@ else
   @foreach (var join in Model.JoinEntities)
   {
     <li>@join.Engineer.Name</li>
+      @using (Html.BeginForm("DeleteEngineer", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Remove from @Html.DisplayFor(model => model.Name)"/>
+      }
   }
 </ul>
 }
