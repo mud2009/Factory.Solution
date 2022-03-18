@@ -20,6 +20,7 @@ namespace Factory.Controllers
     {
       ViewBag.AllMachines = _db.Machines.ToList();
       ViewBag.AllEngineers = _db.Engineers.ToList();
+      ViewBag.PageTitle = "Factory Tracker";
       return View();
     }
   }

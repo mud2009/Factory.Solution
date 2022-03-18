@@ -18,10 +18,12 @@ namespace Factory.Controllers
     public ActionResult Index()
     {
       List<Machine> model = _db.Machines.ToList();
+      ViewBag.PageTitle = "Machines";
       return View(model);
     }
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Add Machine";
       return View();
     }
     [HttpPost]
@@ -37,11 +39,13 @@ namespace Factory.Controllers
         .Include(machine => machine.JoinEntities)
         .ThenInclude(join => join.Engineer)
         .FirstOrDefault(engineer => engineer.MachineId == id);
+      ViewBag.PageTitle = "Machine Details";
       return View(thisMachine);
     }
     public ActionResult Edit(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(model => model.MachineId == id);
+      ViewBag.PageTitle = "Edit Machine";
       return View(thisMachine);
     }
     [HttpPost]
@@ -54,6 +58,7 @@ namespace Factory.Controllers
     public ActionResult Delete(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(model => model.MachineId == id);
+      ViewBag.PageTitle = "Delete Machine";
       return View(thisMachine);
     }
     [HttpPost, ActionName("Delete")]
