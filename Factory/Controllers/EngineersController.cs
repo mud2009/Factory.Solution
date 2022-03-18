@@ -38,13 +38,13 @@ namespace Factory.Controllers
         .Include(engineer => engineer.JoinEntities)
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.PageTitle = "Engineer Details";
+      ViewBag.PageTitle = $"{thisEngineer.Name}'s Details";
       return View(thisEngineer);
     }
     public ActionResult Edit(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.PageTitle = "Edit Engineer";
+      ViewBag.PageTitle = $"Edit {thisEngineer.Name}";
       return View(thisEngineer);
     }
     [HttpPost]
@@ -57,7 +57,7 @@ namespace Factory.Controllers
     public ActionResult Delete(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.PageTitle = "Delete Engineer";
+      ViewBag.PageTitle = $"Delete {thisEngineer.Name}";
       return View(thisEngineer);
     }
     [HttpPost, ActionName("Delete")]

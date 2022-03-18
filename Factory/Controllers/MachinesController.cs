@@ -39,13 +39,13 @@ namespace Factory.Controllers
         .Include(machine => machine.JoinEntities)
         .ThenInclude(join => join.Engineer)
         .FirstOrDefault(engineer => engineer.MachineId == id);
-      ViewBag.PageTitle = "Machine Details";
+      ViewBag.PageTitle = $"{thisMachine.Name}'s Details";
       return View(thisMachine);
     }
     public ActionResult Edit(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(model => model.MachineId == id);
-      ViewBag.PageTitle = "Edit Machine";
+      ViewBag.PageTitle = $"Edit {thisMachine.Name}";
       return View(thisMachine);
     }
     [HttpPost]
@@ -58,7 +58,7 @@ namespace Factory.Controllers
     public ActionResult Delete(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(model => model.MachineId == id);
-      ViewBag.PageTitle = "Delete Machine";
+      ViewBag.PageTitle = $"Delete {thisMachine.Name}";
       return View(thisMachine);
     }
     [HttpPost, ActionName("Delete")]
