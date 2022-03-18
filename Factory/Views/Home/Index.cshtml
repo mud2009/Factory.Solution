@@ -5,35 +5,33 @@
 <h2>Factory Tracker</h2>
 
 @using Factory.Models
-
-<h3>Engineers</h3>
-
-@if (ViewBag.AllEngineers.Count == 0)
-{
-  <h4>No Engineers have been added yet</h4>
-}
-
-<ul>
-  @foreach (Engineer engineer in ViewBag.AllEngineers)
-  {
-    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
-  }
-</ul>
-
-<h3>Machines</h3>
-
-@if (ViewBag.AllMachines.Count == 0)
-{
-  <h4>No Machines have been added yet</h4>
-}
-
-<ul>
-  @foreach (Machine machine in ViewBag.AllMachines)
-  {
-    <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
-  }
-</ul>
-
-
-<p>@Html.ActionLink("Engineers Page", "Index", "Engineers")</p> 
-<p>@Html.ActionLink("Machines Page", "Index", "Machines")</p>
+<div class="row">
+  <div class="col-6">
+    <h3>Engineers</h3>
+    @if (ViewBag.AllEngineers.Count == 0)
+    {
+      <h4>No Engineers have been added yet</h4>
+    }
+    <ul>
+      @foreach (Engineer engineer in ViewBag.AllEngineers)
+      {
+        <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
+      }
+    </ul>
+    <p>@Html.ActionLink("Engineers Page", "Index", "Engineers")</p> 
+  </div>
+  <div class="col-6">
+    <h3>Machines</h3>
+    @if (ViewBag.AllMachines.Count == 0)
+    {
+      <h4>No Machines have been added yet</h4>
+    }
+    <ul>
+      @foreach (Machine machine in ViewBag.AllMachines)
+      {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+      }
+    </ul>
+    <p>@Html.ActionLink("Machines Page", "Index", "Machines")</p>
+  </div>
+</div>
