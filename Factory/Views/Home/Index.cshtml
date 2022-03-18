@@ -10,28 +10,24 @@
     <h3>Engineers</h3>
     @if (ViewBag.AllEngineers.Count == 0)
     {
-      <h4>No engineers have been added yet</h4>
+      <h5>No engineers have been added yet</h5>
     }
-    <ul>
       @foreach (Engineer engineer in ViewBag.AllEngineers)
       {
-        <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
+        <p>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</p>
       }
-    </ul>
     <p>@Html.ActionLink("Engineers page", "Index", "Engineers")</p> 
   </div>
   <div class="col-6">
     <h3>Machines</h3>
     @if (ViewBag.AllMachines.Count == 0)
     {
-      <h4>No machines have been added yet</h4>
+      <h5>No machines have been added yet</h5>
     }
-    <ul>
       @foreach (Machine machine in ViewBag.AllMachines)
       {
-        <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+        <p>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</p>
       }
-    </ul>
     <p>@Html.ActionLink("Machines page", "Index", "Machines")</p>
   </div>
 </div>

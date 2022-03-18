@@ -1,7 +1,9 @@
 body{
   font-family: 'Times New Roman', Times, serif;
-  background-image: url(../img/factory.png);
+  background-image: url(../img/factory1.png);
   background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
   text-align: center;
 }
 
@@ -12,6 +14,9 @@ body{
   padding-bottom: 2px;
 }
 
-input[type=text]{
+.form-control{
+  display: block;
+  margin : 0 auto;
   text-transform: capitalize;
+  width:25% !important;
 }
