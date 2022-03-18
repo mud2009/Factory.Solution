@@ -22,7 +22,7 @@ This MVC web application allows the owner of a factory to keep track of the engi
 
 * Clone this repository to your desktop.
 * Navigate to directory `Factory.Solution` in your terminal.
-* Add an `appsettings.json` file to the directory `HairSalon`.
+* Add an `appsettings.json` file to the directory `Factory`.
 * Add the following code to the `appsettings.json` file, with your password in the appropriate location:
   ```
   {
