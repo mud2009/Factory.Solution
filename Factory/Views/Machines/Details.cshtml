@@ -20,7 +20,9 @@ else
       @using (Html.BeginForm("DeleteEngineer", "Machines"))
       {
         @Html.Hidden("joinId", @join.EngineerMachineId)
-        <input type="submit" value="Remove from @Html.DisplayFor(model => model.Name)" class="btn btn-primary"/>
+        <div class="form-group">
+          <input type="submit" value="Remove @join.Engineer.Name from @Html.DisplayFor(model => model.Name)" class="btn btn-primary"/>
+        </div>
       }
   }
 }
