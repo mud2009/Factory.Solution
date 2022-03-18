@@ -14,7 +14,7 @@
     }
       @foreach (Engineer engineer in ViewBag.AllEngineers)
       {
-        <p>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</p>
+        <p>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</p>
       }
     <p>@Html.ActionLink("Engineers page", "Index", "Engineers")</p> 
   </div>
@@ -26,7 +26,7 @@
     }
       @foreach (Machine machine in ViewBag.AllMachines)
       {
-        <p>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</p>
+        <p>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</p>
       }
     <p>@Html.ActionLink("Machines page", "Index", "Machines")</p>
   </div>
